@@ -1,6 +1,6 @@
 {
-  "short_name": "Aircraft schedule",
-  "name": "Aircraft schedule",
+  "short_name": "Aircraft scheduling",
+  "name": "Aircraft scheduling",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
