@@ -1,0 +1,67 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+body {
+  background-color: #f8f9fa;
+}
+
+
+.card {
+  display: block;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #343a40;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+p {
+  margin: 0;
+}
+
+.disabled {
+  cursor: not-allowed; 
+  opacity: 0.6; 
+  box-shadow: none;
+}
+
+.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.column {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 10px;
+  max-height: 70vh;
+  overflow-y: auto;
+  background-color: #e8eaec;
+}
+
+@media screen and (max-width: 992px) {
+  #aircrafts {
+    display: none
+  }
+
+  #rotation {
+    margin-left: 60px;
+  }
+
+  #flights {
+    max-width: 30vw !important;
+    min-width: 30vw !important;
+  }
+}
