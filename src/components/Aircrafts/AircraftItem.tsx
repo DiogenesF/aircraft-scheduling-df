@@ -1,18 +1,15 @@
 import React, { ReactElement } from "react";
 import { Aircraft } from "../../types";
 import { calculateAircraftUsage } from "../../helpers/calculateAircraftUsage";
+import { useAppContext } from "../../context";
 
 type AircraftItemProps = {
   aircraft: Aircraft;
-  flightUsage: Record<Aircraft["ident"], number>;
-  selectedAircraft?: Aircraft;
 };
 
-export const AircraftItem = ({
-  aircraft,
-  flightUsage,
-  selectedAircraft,
-}: AircraftItemProps): ReactElement => {
+export const AircraftItem = ({ aircraft }: AircraftItemProps): ReactElement => {
+  const { selectedAircraft, flightUsage } = useAppContext();
+
   const className = `card py-10 px-40 ${
     selectedAircraft?.ident === aircraft.ident ? "" : "disabled"
   }`;

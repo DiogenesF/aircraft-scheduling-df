@@ -1,18 +1,10 @@
 import React, { ReactElement } from "react";
-import { Aircraft } from "../../types";
 import { AircraftItem } from "./AircraftItem";
+import { useAppContext } from "../../context";
 
-type AircraftsSectionProps = {
-  aircrafts?: Aircraft[];
-  flightUsage: Record<Aircraft["ident"], number>;
-  selectedAircraft?: Aircraft;
-};
+export const AircraftsSection = (): ReactElement => {
+  const { aircrafts } = useAppContext();
 
-export const AircraftsSection = ({
-  aircrafts,
-  flightUsage,
-  selectedAircraft,
-}: AircraftsSectionProps): ReactElement => {
   return (
     <section id="aircrafts" className="flex-grow-2 ml-60 max-w-15">
       <h2>Aircrafts</h2>
@@ -20,12 +12,7 @@ export const AircraftsSection = ({
         {aircrafts ? (
           <ul>
             {aircrafts.map((aircraft) => (
-              <AircraftItem
-                aircraft={aircraft}
-                flightUsage={flightUsage}
-                selectedAircraft={selectedAircraft}
-                key={aircraft.ident}
-              />
+              <AircraftItem aircraft={aircraft} key={aircraft.ident} />
             ))}
           </ul>
         ) : (

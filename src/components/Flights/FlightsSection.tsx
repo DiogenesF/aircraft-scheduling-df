@@ -1,30 +1,20 @@
 import React, { ReactElement } from "react";
-import { Flight } from "../../types";
 import { FlightItem } from "./FlightItem";
+import { useAppContext } from "../../context";
 
-type FlightsSectionProps = {
-  flights?: Flight[];
-  handleAddNewFlight: (flight: Flight) => void;
-};
+export const FlightsSection = (): ReactElement => {
+  const { filteredFlights } = useAppContext();
 
-export const FlightsSection = ({
-  flights,
-  handleAddNewFlight,
-}: FlightsSectionProps): ReactElement => {
   return (
     <section id="flights" className="flex-grow-3 mr-60 max-w-20">
       <h2>Flights</h2>
       <div className="column">
-        {flights ? (
+        {filteredFlights ? (
           <ul>
-            {flights.map((flight) => (
-              <FlightItem
-                key={flight.ident}
-                flight={flight}
-                handleAddNewFlight={handleAddNewFlight}
-              />
+            {filteredFlights.map((flight) => (
+              <FlightItem key={flight.ident} flight={flight} />
             ))}
-            {flights.length === 0 && (
+            {filteredFlights.length === 0 && (
               <p>No more flights available for tomorrow!</p>
             )}
           </ul>

@@ -3,18 +3,12 @@ import { ColorsMeaning } from "./Timeline/ColorsMeaning";
 import { TimeIntervalValues } from "./Timeline/TimeIntervalValues";
 import { TimelineDetails } from "./Timeline/TimelineDetails";
 
-type RotationTimelineProps = {
-  aircraftTimeline: number[];
-};
-
-export const RotationTimeline = ({
-  aircraftTimeline,
-}: RotationTimelineProps): ReactElement => {
+export const RotationTimeline = (): ReactElement => {
   return (
     <>
       <TimeIntervalValues />
 
-      <TimelineDetails aircraftTimeline={aircraftTimeline} />
+      <TimelineDetails />
 
       <ColorsMeaning />
     </>

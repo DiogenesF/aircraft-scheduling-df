@@ -1,21 +1,11 @@
 import React, { ReactElement } from "react";
-import { Aircraft, Flight } from "../../types";
 import { RotationItem } from "./RotationItem";
 import { RotationTimeline } from "./RotationTimeline";
+import { useAppContext } from "../../context";
 
-type RotationSectionProps = {
-  selectedAircraft?: Aircraft;
-  rotation: Flight[];
-  aircraftTimeline: number[];
-  handleRemoveFlight: () => void;
-};
+export const RotationSection = (): ReactElement => {
+  const { selectedAircraft, rotation } = useAppContext();
 
-export const RotationSection = ({
-  selectedAircraft,
-  rotation,
-  aircraftTimeline,
-  handleRemoveFlight,
-}: RotationSectionProps): ReactElement => {
   return (
     <section id="rotation" className="flex-grow-5">
       <h2>Rotation {selectedAircraft?.ident ?? ""}</h2>
@@ -27,8 +17,6 @@ export const RotationSection = ({
               key={rotationItem.ident}
               index={index}
               rotationItem={rotationItem}
-              rotationLength={rotation.length}
-              handleRemoveFlight={handleRemoveFlight}
             />
           ))}
           {rotation.length === 0 && (
@@ -39,7 +27,7 @@ export const RotationSection = ({
         </ul>
       </div>
 
-      <RotationTimeline aircraftTimeline={aircraftTimeline} />
+      <RotationTimeline />
     </section>
   );
 };

@@ -1,14 +1,11 @@
 import React, { ReactElement } from "react";
 import { twentyFourHrsInSecs } from "../../../constants";
 import { calculatePercentage } from "../../../helpers/calculatePercentage";
+import { useAppContext } from "../../../context";
 
-type TimelineDetailsProps = {
-  aircraftTimeline: number[];
-};
+export const TimelineDetails = (): ReactElement => {
+  const { aircraftTimeline } = useAppContext();
 
-export const TimelineDetails = ({
-  aircraftTimeline,
-}: TimelineDetailsProps): ReactElement => {
   const className = (index: number): string => {
     if (index === 0) return "timeline-item bg-gray";
     return index % 2 === 0
